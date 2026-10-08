@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getAqar } from "../api/auth";
 import { t, useLanguage } from "../i18n";
 
@@ -57,14 +57,19 @@ export default function DynamicPageHeader() {
 
   const title = propertyMatch ? propertyTitle : pageTitles[location.pathname] ||
     (/^\/edit-contracting\/[^/]+$/.test(location.pathname) ? "تعديل مقاولة" : "الصفحة");
+  const titlePath = propertyMatch ? "/real-estate" : location.pathname;
 
   return (
     <div dir={dir} className="w-full bg-white">
       <div className="pt-6 pb-2 sm:pt-8 sm:pb-3">
         <div className="flex items-center justify-center gap-2 text-[14px] sm:text-[18px] text-black">
-          <span className="font-medium text-black">{t("الرئيسية")}</span>
+          <Link to="/" onClick={() => window.scrollTo(0, 0)} className="font-medium text-black hover:text-[#2B65B3]">
+            {t("الرئيسية")}
+          </Link>
           <span className="text-black">/</span>
-          <span className="font-medium text-[#2B65B3]">{t(title)}</span>
+          <Link to={titlePath} onClick={() => window.scrollTo(0, 0)} className="font-medium text-[#2B65B3] hover:underline">
+            {t(title)}
+          </Link>
         </div>
         <div className="mt-6 h-px w-full bg-slate-200" />
       </div>

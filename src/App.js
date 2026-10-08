@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "./Component/Navbar";
 import Footer from "./Component/Futar";
 import DynamicPageHeader from "./Component/DynamicPageHeader";
@@ -35,6 +35,16 @@ function RequireAuth({ children }) {
   return isAuthenticated() ? children : <Navigate to="/login" replace />;
 }
 
+function ScrollToTop() {
+  const { pathname, search } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname, search]);
+
+  return null;
+}
+
 function App() {
   const { dir, language } = useLanguage();
 
@@ -48,6 +58,7 @@ function App() {
   return (
     <div dir={dir} lang={language}>
       <BrowserRouter>
+        <ScrollToTop />
         <FavoritesProvider>
         <CompareProvider>
         <ToastNotice />

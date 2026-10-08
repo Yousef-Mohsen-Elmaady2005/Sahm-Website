@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+	min-width: 320px;
+	width: 100%;
+	max-width: 100%;
+	font-family: "Tajawal", Arial, sans-serif;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	overflow-x: clip;
+}
+
+#root {
+	min-height: 100vh;
+	min-height: 100svh;
+	width: 100%;
+	min-width: 0;
+}
+
+/* Keep intrinsically wide content from forcing every page past the viewport. */
+img,
+video,
+canvas,
+svg {
+	max-width: 100%;
+}
+
+img,
+video {
+	height: auto;
+}
+
+input,
+select,
+textarea,
+button {
+	max-width: 100%;
+	font: inherit;
+}
+
+input,
+select,
+textarea {
+	min-width: 0;
+}
+
+/* Keep validation feedback consistent across every form in the site. */
+form p[class*="text-red-500"],
+form p[class*="text-red-600"],
+form p[role="alert"] {
+	box-sizing: border-box;
+	display: flex;
+	width: 100%;
+	max-width: 100%;
+	min-height: 3.25rem;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	border: 1px solid #df726d;
+	border-radius: 0.25rem;
+	background-color: #c95d59;
+	padding: 0.75rem 1rem;
+	color: #fff;
+	box-shadow: 0 2px 8px rgb(15 23 42 / 18%);
+}
+
+form p[class*="text-red-500"]::before,
+form p[class*="text-red-600"]::before,
+form p[role="alert"]::before {
+	content: "";
+	width: 1.35rem;
+	height: 1.35rem;
+	flex: 0 0 1.35rem;
+	background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2 2.5 5.5v5.8c0 5.1 4 9.9 9.5 11.7 5.5-1.8 9.5-6.6 9.5-11.7V5.5L12 2Zm0 5a1.2 1.2 0 0 1 1.2 1.2v5.2a1.2 1.2 0 1 1-2.4 0V8.2A1.2 1.2 0 0 1 12 7Zm0 10.1a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8Z'/%3E%3C/svg%3E");
+}
+
+form :is(input, select, textarea):user-invalid {
+	border-color: #f87171;
+	background-color: #fff7f7;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* URLs, IDs, and translated labels should wrap instead of widening cards. */
+body,
+main,
+section,
+article,
+aside {
+	min-width: 0;
+}
+
+@media (max-width: 640px) {
+	:where(h1) {
+		font-size: clamp(1.5rem, 6vw, 2rem);
+	}
+
+	:where(p, li, dd, dt, a, button, label, th, td) {
+		overflow-wrap: anywhere;
+	}
+
+	:where(button, input, select, textarea) {
+		font-size: max(16px, 1em);
+	}
+}
+
+::selection {
+	background-color: #419e8e;
+	color: #fff;
+}
+
+::-moz-selection {
+	background-color: #419e8e;
+	color: #fff;
+}
+
+/* Some legacy screens set RTL locally. Let the selected language control layout. */
+html[data-language="en"] [dir="rtl"] {
+	direction: ltr !important;
+}
+
+html[data-language="en"] .text-right {
+	text-align: left !important;
+}

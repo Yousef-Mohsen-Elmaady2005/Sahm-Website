@@ -65,7 +65,7 @@ function App() {
         <Navbar />
         <DynamicPageHeader />
         <Routes>
-          <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<RequireAuth><Aboutus /></RequireAuth>} />
           <Route path="/contact" element={<RequireAuth><Contactus /></RequireAuth>} />
           <Route path="/help" element={<Help />} />

@@ -36,7 +36,7 @@ const fallbackFooterDescription = "وعند موافقة العميل المبد
 function FooterColumn({ title, links }) {
   return (
     <div>
-      <h3 className="relative inline-block pb-3 mb-5 text-[20px] sm:text-[22px] lg:text-[24px] font-medium leading-tight text-[#183247] after:absolute after:bottom-0 after:right-0 after:h-1 after:w-9 after:bg-[#2563b9]">
+      <h3 className="relative inline-block pb-3 mb-5 text-[20px] sm:text-[22px] lg:text-[24px] font-medium leading-tight text-[#183247] after:absolute after:bottom-0 after:left-1/2 after:h-1 after:w-9 after:-translate-x-1/2 after:bg-[#2563b9] sm:after:left-auto sm:after:right-0 sm:after:translate-x-0">
         {t(title)}
       </h3>
       <ul className="flex flex-col gap-3 sm:gap-3.5">
@@ -143,7 +143,7 @@ export default function Footer() {
 
         {/* النشرة البريدية */}
         <div className="flex flex-col items-center sm:items-start text-center sm:text-right sm:col-span-2 lg:col-span-1">
-          <h3 className="relative inline-block pb-3 mb-5 text-[20px] sm:text-[22px] lg:text-[24px] font-medium leading-tight text-[#183247] after:absolute after:bottom-0 after:right-0 after:h-1 after:w-9 after:bg-[#2563b9]">
+          <h3 className="relative inline-block pb-3 mb-5 text-[20px] sm:text-[22px] lg:text-[24px] font-medium leading-tight text-[#183247] after:absolute after:bottom-0 after:left-1/2 after:h-1 after:w-9 after:-translate-x-1/2 after:bg-[#2563b9] sm:after:left-auto sm:after:right-0 sm:after:translate-x-0">
             {t("النشرة البريدية")}
           </h3>
           <ValidatedForm
